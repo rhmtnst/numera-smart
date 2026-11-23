@@ -1,0 +1,53 @@
+
+# Log files
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+/.idea
+/.vscode
+/.nova
+/.cursor/
+/.zed
+/.codex
+.phpactor.json
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.*
+!.env.example
+
+# Authentication credentials
+/auth.json
+
+# Dependencies
+/vendor
+/node_modules
+
+# Laravel generated files
+/public/build
+/public/fonts-manifest.dev.json
+/public/hot
+/public/storage
+/storage/*.key*
+*/storage/pail*
+*/vendor*
+*_ide_helper.php*
+
+# PHPUnit
+.phpunit.result.cache
+/.phpunit.cache
+
+# Database lokal
+/database/*.sqlite
+/database/*.sqlite-*
+
+# Laravel generated cache
+/bootstrap/cache/*.php
+/storage/framework/views/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*

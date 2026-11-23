@@ -1,0 +1,539 @@
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+}
+
+/* =========================================
+   NUMERA SMART - GLOBAL DESIGN SYSTEM
+========================================= */
+
+:root {
+    --ns-primary: #087fc5;
+    --ns-primary-dark: #075985;
+    --ns-cyan: #16c5d9;
+    --ns-purple: #8274e8;
+    --ns-text: #18334c;
+    --ns-muted: #7b8da2;
+    --ns-border: #e5edf5;
+    --ns-background: #f1f7fc;
+    --ns-white: #ffffff;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body.numera-body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--ns-text);
+    background: var(--ns-background);
+}
+
+.numera-teacher-theme {
+    background:
+        radial-gradient(circle at 85% 8%, rgba(180, 170, 255, .18), transparent 25%),
+        radial-gradient(circle at 12% 90%, rgba(73, 220, 230, .13), transparent 30%),
+        linear-gradient(135deg, #effaff 0%, #f3f7ff 55%, #f5f1ff 100%);
+}
+
+/* =========================================
+   APPLICATION SHELL
+========================================= */
+
+.ns-app-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.ns-main-column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: 260px;
+}
+
+.ns-main-content {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 30px 34px;
+}
+
+.ns-footer {
+    padding: 18px 34px 24px;
+    color: #91a1b3;
+    font-size: 11px;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.ns-sidebar {
+    position: fixed;
+    z-index: 50;
+    inset: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 100vh;
+    padding: 25px 17px 18px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, .88);
+    border-right: 1px solid rgba(210, 226, 241, .8);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+.ns-sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 4px 5px 30px;
+}
+
+.ns-brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #13c9dc, #087ee8);
+    box-shadow: 0 7px 18px rgba(8, 126, 232, .2);
+}
+
+.ns-brand-name {
+    color: #075985;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: -.5px;
+}
+
+.ns-brand-name span {
+    color: #12a9d5;
+}
+
+.ns-brand-tagline {
+    margin-top: 3px;
+    color: #8195aa;
+    font-size: 9px;
+}
+
+.ns-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.ns-side-nav {
+    margin-top: 8px;
+}
+
+.ns-side-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 46px;
+    padding: 10px 13px;
+    color: #617b94;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    border-radius: 13px;
+    transition: .22s ease;
+}
+
+.ns-side-link:hover {
+    color: var(--ns-primary);
+    background: #edf8ff;
+    transform: translateX(2px);
+}
+
+.ns-side-link.is-active {
+    color: white;
+    background: linear-gradient(105deg, #0bbbd7, #1687e9);
+    box-shadow: 0 7px 17px rgba(13, 155, 211, .2);
+}
+
+.ns-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    color: #1689c8;
+    font-size: 17px;
+    border-radius: 10px;
+    background: #eaf6ff;
+}
+
+.ns-side-link.is-active .ns-nav-icon {
+    color: white;
+    background: rgba(255, 255, 255, .2);
+}
+
+.ns-sidebar-bottom {
+    margin-top: auto;
+    padding-top: 25px;
+}
+
+.ns-help-card {
+    padding: 17px;
+    border: 1px solid #dceeff;
+    border-radius: 18px;
+    background: linear-gradient(140deg, #e9faff, #f0edff);
+}
+
+.ns-help-emoji {
+    margin-bottom: 9px;
+    font-size: 25px;
+}
+
+.ns-help-card strong {
+    display: block;
+    color: #075985;
+    font-size: 12px;
+}
+
+.ns-help-card p {
+    margin-top: 7px;
+    color: #69849b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.ns-sidebar-version {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    color: #8ca1b5;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.ns-sidebar-version span {
+    color: #15a6c9;
+}
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.ns-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 12px 34px;
+    border-bottom: 1px solid rgba(222, 235, 246, .8);
+    background: rgba(255, 255, 255, .78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.ns-topbar-context {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8ba0b5;
+    font-size: 12px;
+}
+
+.ns-topbar-context strong {
+    color: #075985;
+    font-weight: 800;
+}
+
+.ns-context-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #18c6b0;
+    box-shadow: 0 0 0 4px rgba(24, 198, 176, .12);
+}
+
+.ns-context-divider {
+    color: #c4d1de;
+}
+
+.ns-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ns-profile-wrapper {
+    position: relative;
+}
+
+.ns-profile-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+    border: 1px solid #e5eef7;
+    border-radius: 30px;
+    background: white;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.ns-profile-chip:hover {
+    border-color: #9ddcf3;
+    box-shadow: 0 5px 15px rgba(8, 126, 197, .08);
+}
+
+.ns-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d9f8ff, #e8e2ff);
+    font-size: 19px;
+}
+
+.ns-profile-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.ns-profile-text strong {
+    max-width: 150px;
+    overflow: hidden;
+    color: #21435f;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ns-profile-text small {
+    color: #8da0b4;
+    font-size: 10px;
+}
+
+.ns-chevron {
+    color: #8ba1b5;
+}
+
+.ns-profile-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 60;
+    width: 245px;
+    padding: 15px;
+    border: 1px solid #e6eef6;
+    border-radius: 17px;
+    background: white;
+    box-shadow: 0 18px 45px rgba(34, 76, 112, .14);
+}
+
+.ns-dropdown-info strong {
+    display: block;
+    color: #183d5a;
+    font-size: 13px;
+}
+
+.ns-dropdown-info small {
+    display: block;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+    color: #91a1b3;
+    font-size: 11px;
+}
+
+.ns-dropdown-divider {
+    height: 1px;
+    margin: 13px 0;
+    background: #edf2f7;
+}
+
+.ns-logout-button {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 10px;
+    color: #dc5555;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    border-radius: 10px;
+    background: #fff5f5;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.ns-logout-button:hover {
+    background: #ffe8e8;
+}
+
+.ns-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    color: #1689c8;
+    font-size: 19px;
+    border: 1px solid #e5eef7;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+}
+
+.ns-menu-toggle,
+.ns-close-sidebar {
+    display: none;
+}
+
+.ns-mobile-overlay {
+    display: none;
+}
+
+/* =========================================
+   COMMON TEACHER CONTENT
+========================================= */
+
+.numera-teacher-theme main h1 {
+    color: #123d5c;
+    font-weight: 850;
+    letter-spacing: -.5px;
+}
+
+.numera-teacher-theme main h2,
+.numera-teacher-theme main h3 {
+    color: #234761;
+    font-weight: 750;
+}
+
+.numera-teacher-theme main .bg-white {
+    border-color: #e7eff6;
+}
+
+.numera-teacher-theme main button,
+.numera-teacher-theme main a {
+    transition-duration: .2s;
+}
+
+.numera-teacher-theme main input,
+.numera-teacher-theme main select,
+.numera-teacher-theme main textarea {
+    border-radius: 12px;
+}
+
+.numera-teacher-theme main input:focus,
+.numera-teacher-theme main select:focus,
+.numera-teacher-theme main textarea:focus {
+    border-color: #32b9db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 197, 217, .12);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1024px) {
+    .ns-main-column {
+        margin-left: 0;
+    }
+
+    .ns-sidebar {
+        transform: translateX(-105%);
+        transition: transform .28s ease;
+    }
+
+    .ns-sidebar.is-open {
+        transform: translateX(0);
+        box-shadow: 15px 0 45px rgba(22, 54, 85, .14);
+    }
+
+    .ns-menu-toggle {
+        display: flex;
+    }
+
+    .ns-close-sidebar {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .ns-mobile-overlay {
+        position: fixed;
+        z-index: 45;
+        inset: 0;
+        display: block;
+        background: rgba(20, 43, 66, .35);
+        backdrop-filter: blur(3px);
+    }
+}
+
+@media (max-width: 640px) {
+    .ns-topbar {
+        min-height: 65px;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .ns-topbar-context {
+        flex: 1;
+        gap: 6px;
+        overflow: hidden;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .ns-topbar-context strong {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .ns-profile-chip {
+        gap: 6px;
+        padding: 5px;
+    }
+
+    .ns-profile-text {
+        display: none;
+    }
+
+    .ns-chevron {
+        display: none;
+    }
+
+    .ns-main-content {
+        padding: 20px 15px;
+    }
+
+    .ns-footer {
+        padding: 15px;
+    }
+}
